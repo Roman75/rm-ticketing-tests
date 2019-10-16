@@ -5,7 +5,7 @@ import fs from 'fs';
 import _ from 'lodash';
 
 let log, config = null;
-const logPrefix = 'scanner ';
+const logPrefix = 'tests   ';
 
 try {
 	config = yaml.safeLoad(fs.readFileSync('./config.yaml', 'utf8'));

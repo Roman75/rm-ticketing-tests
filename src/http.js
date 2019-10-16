@@ -5,7 +5,7 @@ import url from 'url';
 import mime from 'mime';
 import _ from 'lodash';
 
-const logPrefix = 'scanner ';
+const logPrefix = 'tests   ';
 
 class Http {
 
