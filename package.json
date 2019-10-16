@@ -1,0 +1,29 @@
+{
+  "name": "rm-ticketing-tests",
+  "version": "0.0.1",
+  "description": "ticketing system",
+  "main": "run.js",
+  "scripts": {
+    "start": "node /app/run.js",
+    "dev": "sh node_modules/.bin/nodemon ./src/run.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Roman75/rm-ticketing-tests.git"
+  },
+  "author": "Roman Marlovits <roman.marlovits@gmail.com> (http://www.webcomplete.at)",
+  "license": "ISC",
+  "dependencies": {
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
+    "js-yaml": "^3.13.1",
+    "lodash": "^4.17.15",
+    "mime": "^2.4.4",
+    "rm-log": "^1.2.9"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.3",
+    "docdash": "^1.0.3",
+    "jsdoc": "^3.5.5"
+  }
+}
