@@ -1,0 +1,39 @@
+<html>
+<head>
+    <title>account_update.html</title>
+    <script type="text/javascript" src="/tests/helpers.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="/libs/jquery.min.js"></script>
+    <script type="text/javascript" src="/libs/md5.min.js"></script>
+    <script type="text/javascript" src="/libs/sha256.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/tests/styles.css">
+</head>
+<body>
+<h3>account_update.html</h3>
+<h4>edit user: (look into database to get a valid UserID or open <a href="/tests/actions/account_list.html" target="_blank">account_list.html</a>)</h4>
+<div>
+    <p><label>UserID:</label><input type="text" id="UserID" value=""/>
+        <button id="FetchButton">fetch</button>
+    </p>
+</div>
+<hr/>
+<div>
+    <p><label>UserEmail</label><input type="text" id="UserEmail" value=""/></p>
+    <p><label>First Name:</label><input type="text" id="UserFirstname" value=""/></p>
+    <p><label>Last Name:</label><input type="text" id="UserLastname" value=""/></p>
+    <p>
+        <label>Type:</label>
+        <select id="UserType" value="">
+            <option value="">Visitor</option>
+            <option value="admin">Admin</option>
+            <option value="promoter">Promoter</option>
+        </select>
+    </p>
+    <p>
+        <button id="SaveButton">save</button>
+    </p>
+</div>
+</body>
+<script type="text/javascript" src="/tests/actions/js/account_update.js"></script>
+<script type="text/javascript" src="/tests/socket.js"></script>
+</html>

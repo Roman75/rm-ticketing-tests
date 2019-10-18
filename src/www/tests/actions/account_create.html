@@ -1,0 +1,46 @@
+<html>
+<head>
+    <title>account_create.html</title>
+    <script type="text/javascript" src="/tests/helpers.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="/libs/lodash.js"></script>
+    <script type="text/javascript" src="/libs/jquery.min.js"></script>
+    <script type="text/javascript" src="/libs/md5.min.js"></script>
+    <script type="text/javascript" src="/libs/sha256.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/tests/styles.css">
+</head>
+<body>
+<h3>account_create.html</h3>
+<h4>create new user:</h4>
+<div>
+    <p><label>UserEmail</label><input type="text" id="UserEmail" value=""/></p>
+    <p><label>Password:</label><input type="password" id="UserPassword" value="admin"/></p>
+    <p><label>Password (repeat):</label><input type="password" id="UserPasswordCheck" value="admin"/></p>
+    <p><label>First Name:</label><input type="text" id="UserFirstname" value="Admin FN"/></p>
+    <p><label>Last Name:</label><input type="text" id="UserLastname" value="Admin LN"/></p>
+    <p>
+        <label>Language:</label>
+        <select id="UserLangCode" value="">
+            <option value=""></option>
+        </select>
+    </p>
+    <p>
+        <label>Type:</label>
+        <select id="UserType" value="">
+            <option value="">Visitor</option>
+            <option value="admin">Admin</option>
+            <option value="promoter">Promoter</option>
+        </select>
+    </p>
+    <p>
+        <button id="save">save</button>
+    </p>
+</div>
+<h4>list of users:</h4>
+<div>
+
+</div>
+</body>
+<script type="text/javascript" src="/tests/actions/js/account_create.js"></script>
+<script type="text/javascript" src="/tests/socket.js"></script>
+</html>

@@ -1,0 +1,13 @@
+p {
+	clear: both;
+}
+
+p label {
+	display: block;
+	width: 150px;
+	float: left;
+}
+
+p input {
+	width: 280px;
+}
