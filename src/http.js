@@ -14,13 +14,13 @@ class Http {
 	 */
 	constructor(config) {
 
-		if (config.ssl) {
+		if (config.http.ssl) {
 			this._http = https.createServer({
-				key: fs.readFileSync(config.ssl.key, 'utf8'),
-				cert: fs.readFileSync(config.ssl.cert, 'utf8')
-			}).listen(config.port);
+				key: fs.readFileSync(config.http.ssl.key, 'utf8'),
+				cert: fs.readFileSync(config.http.ssl.cert, 'utf8')
+			}).listen(config.http.port);
 		} else {
-			this._http = http.createServer().listen(config.port);
+			this._http = http.createServer().listen(config.http.port);
 		}
 
 		this._http.on('request', (req, res) => {
@@ -44,7 +44,9 @@ class Http {
 				}
 				if (urlPath === '/config.js') {
 					mimeType = 'text/javascript';
-					ret = JSON.stringify({socket_url: config.socket_url});
+					ret = JSON.stringify({
+						socket: config.socket
+					});
 					res.writeHead(200);
 					res.end(ret);
 				} else {

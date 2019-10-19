@@ -26,7 +26,7 @@ global.LOG = new RmLog(config.log);
 
 function start() {
 	if (config) {
-		new Http(config.http);
+		new Http(config);
 	} else {
 		log.err(logPrefix, 'no configuration found');
 	}
