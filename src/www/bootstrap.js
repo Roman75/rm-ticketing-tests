@@ -22,7 +22,7 @@ this.socket;
 
 $.getJSON('config.js', (config) => {
 	this.CONFIG = config;
-	this.CONFIG.socket.server = this.CONFIG.socket.url + ((this.CONFIG.socket.url) ? ':' + this.CONFIG.socket.port : '');
+	this.CONFIG.socket.server = this.CONFIG.socket.url + ((this.CONFIG.socket.port) ? ':' + this.CONFIG.socket.port : '');
 	loadScript(this.CONFIG.socket.server + '/socket.io/socket.io.js', () => {
 		if (this.DEBUG) console.log('config', this.CONFIG);
 
