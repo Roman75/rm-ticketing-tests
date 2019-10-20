@@ -19,6 +19,7 @@
     "js-yaml": "^3.13.1",
     "lodash": "^4.17.15",
     "mime": "^2.4.4",
+    "page": "^1.11.5",
     "rm-log": "^1.2.9"
   },
   "devDependencies": {

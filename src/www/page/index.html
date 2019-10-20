@@ -1,0 +1,42 @@
+<html>
+<head>
+    <title>page router</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/page.js/1.11.5/page.min.js" type="text/javascript"></script>
+</head>
+<body>
+<p></p>
+<ul>
+    <li><a href="./">/</a></li>
+    <li><a href="#whoop">#whoop</a></li>
+    <li><a href="./about">/about</a></li>
+    <li><a href="./contact">/contact</a></li>
+    <li><a href="./contact/me">/contact/me</a></li>
+</ul>
+</body>
+<script>
+
+	// the "notfound" implements a catch-all
+	// with page('*', notfound). Here we have
+	// no catch-all, so page.js will redirect
+	// to the location of paths which do not
+	// match any of the following routes
+	//
+	page.base('/page');
+
+	page('/', (res) => {
+		console.log('root', res);
+	});
+	page('/about', (res) => {
+		console.log('about', res);
+	});
+	page('/contact', (res) => {
+		console.log('contact', res);
+	});
+	page('/contact/:contactName', (res) => {
+		console.log('contact with param?', res);
+	});
+	page();
+
+</script>
+
+</html>
