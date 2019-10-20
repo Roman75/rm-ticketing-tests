@@ -1,0 +1,27 @@
+# misc
+server:
+  sleep: 100 # wait for startup in ms
+
+# connection to socket server
+socket:
+  url: 'http://www.localhost.int'
+  port: 8080
+
+# logging
+log:
+  logfile: true
+  err: true
+  info: true
+  debug: true
+  msg: true
+  datePattern: 'yyyy-mm-dd HH:MM:ss'
+  colors:
+    msg: 'green'
+    info: 'blue'
+    debug: 'cyan'
+    err: 'gray'
+
+# http
+http:
+  port: 8085
+  ssl: false
