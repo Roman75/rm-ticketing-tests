@@ -1,10 +1,4 @@
-FROM node:lts-alpine
+FROM nginx
 ADD VERSION .
-RUN mkdir /app
-WORKDIR /app
-COPY package.json ./
-COPY package-lock.json ./
-RUN npm ci --only=production
-COPY src/ ./
-EXPOSE 8080
-CMD [ "npm", "start" ]
+COPY ./dist /usr/share/nginx/html/
+COPY default.conf /etc/nginx/conf.d/

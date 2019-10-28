@@ -3,7 +3,7 @@ const url = require('url');
 const fs = require('fs');
 const path = require('path');
 // you can pass the parameter in the command line. e.g. node static_server.js 3000
-const port = process.argv[2] || 8085;
+const port = process.argv[2] || 9000;
 
 // maps file extention to MIME types
 const mimeType = {
@@ -35,13 +35,15 @@ http.createServer(function(req, res) {
 	// Avoid https://en.wikipedia.org/wiki/Directory_traversal_attack
 	// e.g curl --path-as-is http://localhost:9000/../fileInDanger.txt
 	// by limiting the path to current directory only
-	const sanitizePath = path.normalize(parsedUrl.pathname).replace(/^(\.\.[\/\\])+/, '');
+	let sanitizePath = path.normalize(parsedUrl.pathname).replace(/^(\.\.[\/\\])+/, '');
 	let pathname = path.join(__dirname, root + sanitizePath);
 
-	console.log(pathname);
+	if (pathname.indexOf('.') === -1) {
+		pathname = path.join(__dirname, root + 'index.html');
+	}
 
-	fs.exists(pathname, function(exist) {
-		if (!exist) {
+	fs.access(pathname, fs.constants.F_OK, (err) => {
+		if (err) {
 			// if the file is not found, return 404
 			res.statusCode = 404;
 			res.end(`File ${pathname} not found!`);
