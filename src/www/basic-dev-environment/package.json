@@ -5,8 +5,8 @@
 	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"build": "browserify index.js -o dist/bundle.js",
-		"watch": "watchify index.js -o dist/bundle.js -v"
+		"build": "browserify src/app.js -o dist/bundle.js",
+		"dev": "concurrently \"node server.js\" \"watchify src/app.js -o dist/bundle.js -v\""
 	},
 	"browserify": {
 		"transform": [
@@ -28,6 +28,9 @@
 		"@babel/preset-env": "^7.6.3",
 		"babelify": "^10.0.0",
 		"browserify": "^16.5.0",
+		"concurrently": "^5.0.0",
+		"http-server": "^0.11.1",
+		"node-static": "^0.7.11",
 		"serve": "^11.2.0",
 		"watchify": "^3.11.1"
 	},
