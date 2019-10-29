@@ -30,6 +30,11 @@ class Router {
 				console.log('site with param?', res);
 			});
 
+			page('/site2/:param1/:param2', (res) => {
+				console.log('6 ============');
+				console.log('site2 with param?', res);
+			});
+
 			page();
 
 		});

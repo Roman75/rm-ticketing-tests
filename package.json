@@ -5,10 +5,27 @@
 	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"build": "browserify -p tinyify src/app.js -o dist/build.js",
-		"dev": "concurrently \"node server.js 8085\" \"watchify src/app.js -o dist/bundle.js -v\""
+		"build": "browserify -p tinyify src/app.js -o dist/bundle.js",
+		"dev": "simplifyify src/app.js -o dev/bundle.js --bundle --debug --watch -v"
 	},
 	"browserify": {
+		"plugins": [
+			[
+				"browserify-banner",
+				{
+					"template": "<%= pkg.name %> v<%= pkg.version %>"
+				}
+			],
+			[
+				"tsify",
+				{
+					"target": "esnext",
+					"module": "commonjs",
+					"moduleResolution": "node",
+					"jsx": "react"
+				}
+			]
+		],
 		"transform": [
 			[
 				"babelify",
@@ -28,8 +45,11 @@
 		"@babel/preset-env": "^7.6.3",
 		"babelify": "^10.0.0",
 		"browserify": "^16.5.0",
+		"browserify-banner": "^1.0.15",
 		"concurrently": "^5.0.0",
+		"simplifyify": "^7.0.5",
 		"tinyify": "^2.5.1",
+		"typescript": "^3.6.4",
 		"watchify": "^3.11.1"
 	},
 	"dependencies": {
