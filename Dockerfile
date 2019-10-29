@@ -1,4 +1,4 @@
 FROM nginx
 ADD VERSION .
-COPY ./dist /usr/share/nginx/html/
-COPY default.conf /etc/nginx/conf.d/
+COPY ./build /usr/share/nginx/html/
+COPY nginx-server.conf /etc/nginx/conf.d/default.conf

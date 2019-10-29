@@ -1,11 +1,18 @@
-import readingTime from "reading-time";
 import Router from './router';
+import io from 'socket.io-client';
+import $ from 'jquery';
+import _ from 'lodash';
 
-console.log('WE ARE HERE!');
+let socket = null;
 
-window.calcRT = ev => {
-	let stats = readingTime(ev.value).text;
-	document.getElementById("readingTime").innerText = stats;
-};
-
-new Router();
+$(document).ready(() => {
+	let router = new Router();
+	$.getJSON('/config.json', function(config) {
+		socket = io(config.wss, {
+			transports: ['websocket', 'polling']
+		});
+		socket.on('connect', () => {
+			console.log('connect');
+		});
+	});
+});
