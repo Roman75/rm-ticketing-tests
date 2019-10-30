@@ -1,22 +1,14 @@
 {
-	"name": "rm-ticketing-tests",
 	"version": "0.0.1",
+	"name": "rm-ticketing-tests",
 	"description": "basic setup for dev",
 	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"build": "browserify -p tinyify src/app.js -o build/bundle.js",
+		"build": "browserify -p tinyify -p browserify-banner --file banner.txt src/app.js -o dist/bundle.js",
 		"dev": "simplifyify src/app.js -o dev/bundle.js --bundle --debug --watch -v"
 	},
 	"browserify": {
-		"plugins": [
-			[
-				"browserify-banner",
-				{
-					"template": "<%= pkg.name %> v<%= pkg.version %>"
-				}
-			]
-		],
 		"transform": [
 			[
 				"babelify",
@@ -28,6 +20,12 @@
 			]
 		]
 	},
+	"browserslist": [
+		"Chrome >= 29",
+		"IE >= 10",
+		"iOS >= 7",
+		"Firefox >= 20"
+	],
 	"author": "Roman Marlovits <roman.marlovits@gmail.com>",
 	"license": "ISC",
 	"devDependencies": {
@@ -37,6 +35,7 @@
 		"babelify": "^10.0.0",
 		"browserify": "^16.5.0",
 		"browserify-banner": "^1.0.15",
+		"browserlist": "^1.0.1",
 		"concurrently": "^5.0.0",
 		"simplifyify": "^7.0.5",
 		"tinyify": "^2.5.1",

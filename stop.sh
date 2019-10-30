@@ -1,4 +1,4 @@
 #!/bin/bash
-source ./.env
+source ./.locale
 
-docker stop rm-ticketing-$repo
+docker stop $repo
