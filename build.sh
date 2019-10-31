@@ -4,7 +4,7 @@ source ./.locale
 
 VERSION=$(<VERSION)
 
-if [ ! -d "dev" ]; then
+if [ ! -d "dist" ]; then
   mkdir dist
 fi
 rm -R dist/*

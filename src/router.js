@@ -1,5 +1,11 @@
 import page from "page";
+import _ from 'lodash';
 
+/**
+ * Router for URL requests
+ * <div>Here are all possible URLs listed (like rest endpoints in middleware)</div>
+ * <div>Every possible request must be implemented here</div>
+ */
 class Router {
 	constructor(client) {
 
