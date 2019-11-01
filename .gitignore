@@ -3,5 +3,4 @@
 .locale
 node_modules
 tmp/
-dist/
 banner.txt
