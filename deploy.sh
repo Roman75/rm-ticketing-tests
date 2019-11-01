@@ -1,14 +1,19 @@
 #!/bin/bash
 
-if [ ! -d "tmp" ]; then
-  mkdir tmp
+if [ ! -d "dist" ]; then
+  mkdir dist
 fi
+rm -R dist/*
 rm -R tmp/*
 
-cp src/libs/* tmp/libs/*
-cp src/index.html tmp/index.html
-cp src/favicon.ico tmp/favicon.ico
+sh jsdoc.sh
+
+cp -r src/libs dist/
+cp src/index.html dist/index.html
+cp src/favicon.ico dist/favicon.ico
 
 sh banner.sh
 npm run build
 rm banner.txt
+
+cp tmp/bundle.js dist/bundle.js
