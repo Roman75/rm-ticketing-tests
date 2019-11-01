@@ -5,16 +5,27 @@
 	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"build": "browserify -p tinyify -p browserify-banner --file banner.txt src/app.js -o dist/bundle.js",
-		"dev": "simplifyify src/app.js -o dev/bundle.js --bundle --debug --watch -v"
+		"dev": "simplifyify src/app.js -o tmp/bundle.js --bundle --debug --watch -v",
+		"build": "browserify -p tinyify -p browserify-banner --file banner.txt src/app.js -o tmp/bundle.js"
 	},
 	"browserify": {
 		"transform": [
 			[
 				"babelify",
 				{
+					"plugins": [
+					],
 					"presets": [
-						"@babel/preset-env"
+						[
+							"@babel/env",
+							{
+								"targets": {
+									"browsers": [
+										"IE >= 10"
+									]
+								}
+							}
+						]
 					]
 				}
 			]
@@ -36,7 +47,6 @@
 		"browserify": "^16.5.0",
 		"browserify-banner": "^1.0.15",
 		"browserlist": "^1.0.1",
-		"concurrently": "^5.0.0",
 		"docdash": "^1.1.1",
 		"jsdoc": "^3.6.3",
 		"simplifyify": "^7.0.5",
@@ -48,7 +58,6 @@
 		"@babel/polyfill": "^7.6.0",
 		"jquery": "^3.4.1",
 		"lodash": "^4.17.15",
-		"page": "^1.11.5",
-		"socket.io-client": "^2.3.0"
+		"page": "^1.11.5"
 	}
 }

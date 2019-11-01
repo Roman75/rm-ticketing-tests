@@ -9,10 +9,6 @@ cp src/libs/* tmp/libs/*
 cp src/index.html tmp/index.html
 cp src/favicon.ico tmp/favicon.ico
 
-sh banner.sh
-npm run build
-rm banner.txt
-
 source ./.locale
 
 docker stop $repo
@@ -21,4 +17,6 @@ docker run --name $repo -p $port:80 \
 -v $path/nginx-server.conf:/etc/nginx/conf.d/default.conf:ro \
 -v $path/config.json:/usr/share/nginx/html/config.json \
 -v $path/tmp:/usr/share/nginx/html \
-nginx
+-d nginx
+
+npm run dev

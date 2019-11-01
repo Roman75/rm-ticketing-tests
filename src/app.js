@@ -1,26 +1,30 @@
 import Router from './router';
-import io from 'socket.io-client';
 import $ from 'jquery';
 
 /**
  * Application entry point
  */
 class App {
-	constructor(client) {
-		let socket = null;
+	constructor() {
+		this.config = {};
+		this.socket = {};
+		this.router = {};
 
 		$(document).ready(() => {
-			let router = new Router();
-			$.getJSON('/config.json', function(config) {
-				socket = io(config.wss, {
-					transports: ['websocket', 'polling']
-				});
-				socket.on('connect', () => {
-					console.log('connect');
+			this.router = new Router();
+			$.getJSON('/config.json', (config) => {
+				this.config = config;
+
+				$.getScript(this.config.wss + '/socket.io/socket.io.js', (data, textStatus, jqxhr) => {
+					this.socket = io(this.config.wss, {
+						transports: ['websocket', 'polling']
+					});
+					this.socket.on('connect', () => {
+						console.log('connect');
+					});
 				});
 			});
 		});
-
 	}
 }
 
