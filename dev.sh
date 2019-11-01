@@ -5,7 +5,7 @@ if [ ! -d "tmp" ]; then
 fi
 rm -R tmp/*
 
-cp src/libs/* tmp/libs/*
+cp -r src/libs tmp/
 cp src/index.html tmp/index.html
 cp src/favicon.ico tmp/favicon.ico
 

@@ -13,19 +13,8 @@
 			[
 				"babelify",
 				{
-					"plugins": [
-					],
 					"presets": [
-						[
-							"@babel/env",
-							{
-								"targets": {
-									"browsers": [
-										"IE >= 10"
-									]
-								}
-							}
-						]
+						"@babel/preset-env"
 					]
 				}
 			]
