@@ -29,14 +29,22 @@ class Router {
 			console.log('5 ============');
 			console.log('site with param?', res);
 		});
-
 		page('/site2/:param1/:param2', (res) => {
 			console.log('6 ============');
 			console.log('site2 with param?', res);
 		});
+		page('/event/fetch', (res) => {
+			console.log('7 ============');
+			console.log('/event/fetch', res);
+			document.SOCKET.emit('event-fetch');
+		});
+		page('/event/fetch/:EventID', (res) => {
+			console.log('8 ============');
+			console.log('/event/fetch/:EventID', res);
+			document.SOCKET.emit('event-fetch', res.params.EventID);
+		});
 
 		page();
-
 	}
 }
 

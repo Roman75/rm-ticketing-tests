@@ -6,22 +6,25 @@ import $ from 'jquery';
  */
 class App {
 	constructor() {
-		this.config = {};
-		this.socket = {};
-		this.router = {};
-
 		$(document).ready(() => {
-			this.router = new Router();
 			$.getJSON('/config.json', (config) => {
-				this.config = config;
-
-				$.getScript(this.config.wss + '/socket.io/socket.io.js', (data, textStatus, jqxhr) => {
-					this.socket = io(this.config.wss, {
+				document.CONFIG = config;
+				$.getScript(document.CONFIG.wss + '/socket.io/socket.io.js', (data, textStatus, jqxhr) => {
+					document.SOCKET = io(document.CONFIG.wss, {
 						transports: ['websocket', 'polling']
 					});
-					this.socket.on('connect', () => {
+					document.SOCKET.on('event-fetch', (res) => {
+						console.log('event-fetch');
+						console.log(res[0]);
+					});
+					document.SOCKET.on('event-fetch-err', (err) => {
+						console.log('event-fetch-err');
+						console.log(err);
+					});
+					document.SOCKET.on('connect', () => {
 						console.log('connect');
 					});
+					document.ROUTER = new Router();
 				});
 			});
 		});
