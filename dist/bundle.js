@@ -3,8 +3,8 @@
  \_______|           rm-ticketing-tests            |_______
   \      |       roman.marlovits@gmail.com         |      /
    \     |     copyright 2019 Roman Marlovits      |     /
-    \    |           2019-11-03 11:11:02           |    /
-    /    |             version: 0.0.25             |    \
+    \    |           2019-11-03 11:11:36           |    /
+    /    |             version: 0.0.26             |    \
    /     |_________________________________________|     \
   /________)                                     (________\
  /
@@ -17,23 +17,8 @@ npm packages:
 - page: ^1.11.5
 
 browserlist:
-- >
--  
-- 0
-- .
-- 2
-- 5
-- %
-- ,
--  
-- n
-- o
-- t
--  
-- d
-- e
-- a
-- d
+- last 2 version
+- IE 9
 
 */
 
