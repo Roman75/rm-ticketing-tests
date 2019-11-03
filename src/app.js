@@ -13,6 +13,9 @@ class App {
 					document.SOCKET = io(document.CONFIG.wss, {
 						transports: ['websocket', 'polling']
 					});
+					document.SOCKET.on('connect', (res) => {
+						console.log('connect', document.SOCKET.id, document.SOCKET);
+					});
 					document.SOCKET.on('event-fetch', (res) => {
 						console.log('event-fetch');
 						console.log(res[0]);
@@ -20,9 +23,6 @@ class App {
 					document.SOCKET.on('event-fetch-err', (err) => {
 						console.log('event-fetch-err');
 						console.log(err);
-					});
-					document.SOCKET.on('connect', () => {
-						console.log('connect');
 					});
 					document.ROUTER = new Router();
 				});
