@@ -20,12 +20,6 @@
 			]
 		]
 	},
-	"browserslist": [
-		"Chrome >= 29",
-		"IE >= 10",
-		"iOS >= 7",
-		"Firefox >= 20"
-	],
 	"author": "Roman Marlovits <roman.marlovits@gmail.com>",
 	"license": "ISC",
 	"devDependencies": {
@@ -40,8 +34,7 @@
 		"jsdoc": "^3.6.3",
 		"simplifyify": "^7.0.5",
 		"tinyify": "^2.5.1",
-		"typescript": "^3.6.4",
-		"watchify": "^3.11.1"
+		"typescript": "^3.6.4"
 	},
 	"dependencies": {
 		"@babel/polyfill": "^7.6.0",

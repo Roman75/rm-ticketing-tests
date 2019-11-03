@@ -1,5 +1,5 @@
-//import Router from './router';
-//import $ from 'jquery';
+import Router from './router';
+import $ from 'jquery';
 
 /**
  * Application entry point
@@ -10,7 +10,6 @@ class App {
 		this.socket = {};
 		this.router = {};
 
-		/*
 		$(document).ready(() => {
 			this.router = new Router();
 			$.getJSON('/config.json', (config) => {
@@ -26,7 +25,6 @@ class App {
 				});
 			});
 		});
-		*/
 	}
 }
 
