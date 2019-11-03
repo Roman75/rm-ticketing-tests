@@ -11,7 +11,7 @@ class App {
 				document.CONFIG = config;
 				$.getScript(document.CONFIG.wss + '/socket.io/socket.io.js', (data, textStatus, jqxhr) => {
 					document.SOCKET = io(document.CONFIG.wss, {
-						transports: ['websocket', 'polling']
+						transports: ['polling']
 					});
 					document.SOCKET.on('connect', (res) => {
 						console.log('connect', document.SOCKET.id, document.SOCKET);
