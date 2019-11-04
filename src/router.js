@@ -9,6 +9,8 @@ import page from "page";
 class Router {
 	constructor(client) {
 
+		page.base('');
+
 		page('/', (res) => {
 			console.log('0 ============');
 			console.log('root', res);
@@ -36,7 +38,7 @@ class Router {
 		page('/event/fetch', (res) => {
 			console.log('7 ============');
 			console.log('/event/fetch', res);
-			document.SOCKET.emit('event-fetch');
+			document.SOCKET.emit('event-fetch-all');
 		});
 		page('/event/fetch/:EventID', (res) => {
 			console.log('8 ============');

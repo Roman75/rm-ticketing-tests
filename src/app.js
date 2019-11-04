@@ -10,12 +10,13 @@ class App {
 			$.getJSON('/config.json', (config) => {
 				document.CONFIG = config;
 				$.getScript(document.CONFIG.wss + '/socket.io/socket.io.js', (data, textStatus, jqxhr) => {
+
+					// init socket server connection
 					document.SOCKET = io(document.CONFIG.wss, {
 						transports: ['polling']
 					});
-					document.SOCKET.on('connect', (res) => {
-						console.log('connect', document.SOCKET.id, document.SOCKET);
-					});
+
+					// register ALL socket server events
 					document.SOCKET.on('event-fetch', (res) => {
 						console.log('event-fetch');
 						console.log(res[0]);
@@ -24,10 +25,29 @@ class App {
 						console.log('event-fetch-err');
 						console.log(err);
 					});
-					document.ROUTER = new Router();
+
+					document.SOCKET.on('event-fetch-all', (res) => {
+						console.log('event-fetch-all');
+						console.log(res);
+					});
+					document.SOCKET.on('event-fetch-all-err', (err) => {
+						console.log('event-fetch-all-err');
+						console.log(err);
+					});
+
+
+					// connect to socket server
+					document.SOCKET.on('connect', (res) => {
+						this._start();
+					});
 				});
 			});
 		});
+	}
+
+	_start() {
+		document.ROUTER = new Router();
+
 	}
 }
 

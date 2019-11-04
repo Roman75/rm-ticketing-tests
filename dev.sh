@@ -1,15 +1,15 @@
 #!/bin/bash
 
+source ./.locale
+
 if [ ! -d "tmp" ]; then
   mkdir tmp
 fi
-rm -R tmp/*
+rm -R $project_path/$repo/tmp/*
 
 cp -r src/libs tmp/
 cp src/index.html tmp/index.html
 cp src/favicon.ico tmp/favicon.ico
-
-source ./.locale
 
 docker stop $repo
 docker rm -f $repo

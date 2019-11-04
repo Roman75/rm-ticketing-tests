@@ -37,7 +37,7 @@
 		"docdash": "^1.1.1",
 		"jsdoc": "^3.6.3",
 		"simplifyify": "^7.0.5",
-		"tinyify": "^2.5.1",
+		"tinyify": "^2.5.2",
 		"typescript": "^3.6.4"
 	},
 	"dependencies": {
