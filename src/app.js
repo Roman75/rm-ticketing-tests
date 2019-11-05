@@ -1,5 +1,6 @@
 import Router from './router';
 import $ from 'jquery';
+import _ from 'lodash';
 
 /**
  * Application entry point
@@ -29,6 +30,11 @@ class App {
 					document.SOCKET.on('event-fetch-all', (res) => {
 						console.log('event-fetch-all');
 						console.log(res);
+						const EventsList = $('#EventsList');
+						EventsList.empty();
+						_.each(res, (Event) => {
+							EventsList.append('<li><a href="/event/fetch/' + Event.EventID + '">' + Event.EventName + '</a></li>');
+						});
 					});
 					document.SOCKET.on('event-fetch-all-err', (err) => {
 						console.log('event-fetch-all-err');
