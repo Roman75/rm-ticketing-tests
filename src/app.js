@@ -33,7 +33,7 @@ class App {
 						const EventsList = $('#EventsList');
 						EventsList.empty();
 						_.each(res, (Event) => {
-							EventsList.append('<li><a href="/event/fetch/' + Event.EventID + '">' + Event.EventName + '</a></li>');
+							EventsList.append('<li><a href="/event/fetch/' + Event.EventID + '">' + Event.EventName + ' (' + Event.EventPrefix + ')</a></li>');
 						});
 					});
 					document.SOCKET.on('event-fetch-all-err', (err) => {

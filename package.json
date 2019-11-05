@@ -22,7 +22,7 @@
 	},
 	"browserslist": [
 		"last 2 version",
-		"IE 9"
+		"IE 11"
 	],
 	"author": "Roman Marlovits <roman.marlovits@gmail.com>",
 	"license": "ISC",
